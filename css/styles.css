@@ -1,0 +1,317 @@
+body {
+  /* Fondo más saturado y vibrante */
+  background: linear-gradient(135deg, #121212, #242424);
+  min-height: 100vh;
+  color: #E0E0E0; /* Blanco suave */
+  font-family: 'Inter', sans-serif;
+}
+
+/* Banner superior */
+.top-banner {
+  text-align: center;
+  padding: 30px 0 15px; /* Más espacio arriba */
+  background: #0d0d0d; /* Fondo oscuro sutil */
+  border-bottom: 1px solid #333;
+}
+
+.top-text {
+  font-size: 44px;
+  font-weight: 800; /* Más audaz */
+  font-family: 'Montserrat', sans-serif;
+  color:#1db954; /* Color principal (Spotify Green) */
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px rgba(29, 185, 84, 0.4);
+}
+
+.fancy {
+  font-size: 20px;
+  margin-top: 0px;
+  opacity: 0.7;
+  color: #B3B3B3;
+}
+
+/* Animaciones: simplificadas */
+.animate-slide {
+  animation: slide 10s linear infinite;
+}
+
+@keyframes slide {
+  0% { transform: translateX(-20px); }
+  50% { transform: translateX(20px); }
+  100% { transform: translateX(-20px); }
+}
+
+.animate-fade {
+  animation: fade 3s infinite alternate;
+}
+
+@keyframes fade {
+  from { opacity: 0.7; }
+  to { opacity: 1; }
+}
+
+/* Reproductor - Desktop Base */
+.player {
+  max-width: 900px; /* Un poco más ancho */
+  margin: 50px auto;
+  /* MEJORA: Efecto Glassmorphism */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 30px !important;
+}
+
+.cover img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.right-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* 🚨 Desktop: Alineación a la izquierda */
+  text-align: left; 
+}
+
+/* Títulos de Canción/Artista */
+.right-col h4 {
+    color: white;
+}
+.right-col p {
+    color: #B3B3B3;
+    font-weight: 300;
+}
+
+/* Botones de Control */
+.control-btn, .play-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; /* Circulares */
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  color: white;
+  border: none;
+  transition: 0.2s ease-out;
+}
+
+.control-btn {
+  background: #333333;
+}
+
+.control-btn:hover {
+  background: #444444;
+  transform: scale(1.05);
+}
+
+.play-btn {
+  background: #1db954;
+  font-size: 30px;
+  box-shadow: 0 4px 10px rgba(29, 185, 84, 0.4);
+}
+
+.play-btn:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 15px rgba(29, 185, 84, 0.6);
+}
+
+/* Progreso */
+.progress {
+  width: 100%;
+  height: 8px;
+  background: #333;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.progress .bar {
+  height: 8px;
+  background: #1db954;
+  width: 0%;
+  border-radius: 50px;
+  transition: background 0.2s;
+}
+
+/* Time Row */
+.time-row span {
+    color: #B3B3B3;
+    font-size: 14px;
+}
+
+/* Playlist */
+.playlist {
+    margin-top: 15px !important;
+    border-top: 1px solid #444;
+}
+
+.playlist div {
+  padding: 10px 15px;
+  border-bottom: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+
+.playlist div:hover {
+  background: rgba(29, 185, 84, 0.15);
+  color: white;
+}
+
+/* Switch LOOP (Sin cambios en funcionalidad) */
+.switch {
+  width: 44px;
+  height: 22px;
+}
+.slider:before {
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+}
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+
+/* 🚨 BOTÓN LETRA: Más corto y Alineado a la Izquierda (Desktop) 🚨 */
+.lyrics-btn {
+  background: linear-gradient(45deg, #FF6B6B, #FFB74D);
+  color: #121212;
+  font-weight: 700;
+  /* Ajuste para hacerlo más corto */
+  padding: 6px 12px; 
+  border-radius: 10px;
+  font-size: 13px;
+  box-shadow: 0 3px 8px rgba(255, 107, 107, 0.5);
+  transition: 0.3s ease;
+  animation: pulse-shadow 2s infinite alternate;
+}
+
+.lyrics-btn i {
+  font-size: 14px; /* Ícono más pequeño */
+  margin-right: 5px;
+}
+
+.lyrics-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.7);
+  animation: none;
+}
+
+/* Botón pegajoso (Desktop) */
+.lyrics-btn-sticky {
+    position: sticky;
+    bottom: 0px;
+    z-index: 10;
+    margin-top: auto;
+    /* 🚨 Alineación a la izquierda en Desktop 🚨 */
+    align-self: flex-start; 
+}
+
+/* Panel letra - Desktop Base (Lateral) */
+.lyrics-panel {
+  right: -380px;
+  width: 380px; 
+  background: #101010;
+  border-left: 1px solid #444;
+  padding: 25px;
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lyrics-content::-webkit-scrollbar-thumb {
+  background: #1db954;
+}
+
+/* --- ESTILOS DEL MODAL (Pop-up) --- */
+
+.modal-content {
+    /* Fondo oscuro y glassmorphism para el modal */
+    background: rgba(20, 20, 20, 0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    color: #E0E0E0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra más fuerte */
+}
+
+.modal-header {
+    border-bottom: 1px solid #333;
+    padding: 15px 25px;
+}
+
+.modal-title {
+    font-weight: 700;
+    color: #1db954;
+    text-shadow: 0 0 5px rgba(29, 185, 84, 0.2);
+}
+
+
+/* ============================================== */
+/* MOBILE RESPONSIVE (max-width: 768px)  */
+/* ============================================== */
+
+@media (max-width: 768px) {
+    /* 1. General y Reproductor Principal */
+    .top-banner { padding: 15px 0 10px; }
+    .top-text { font-size: 32px; }
+
+    .player {
+        margin: 20px auto;
+        padding: 15px !important;
+        border-radius: 15px;
+    }
+    .cover img {
+        width: 150px;
+        height: 150px;
+    }
+    .right-col {
+        width: 100%;
+        /* 🚨 Mobile: Volver a centrar el texto 🚨 */
+        text-align: center;
+    }
+    
+    /* 2. Controles */
+    .control-btn, .play-btn {
+        width: 50px;
+        height: 50px;
+    }
+    
+    /* 3. Botón Letra Móvil: Ancho completo y centrado */
+    .lyrics-btn-sticky {
+        position: static;
+        width: 100%;
+        margin-top: 20px !important;
+        align-self: auto;
+    }
+    .lyrics-btn {
+        padding: 10px 0; /* Asegurar que ocupe todo el ancho */
+        font-size: 16px; /* Más grande para táctil */
+        color: white; /* Mejor contraste en ancho completo */
+    }
+    
+    /* 4. Panel de Letras Móvil (Bottom Sheet) */
+    .lyrics-panel {
+        right: 0;
+        top: auto;
+        bottom: -100%; 
+        width: 100%;
+        height: 90%; 
+        padding: 20px 15px;
+        transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 20px 20px 0 0;
+        border-left: none;
+    }
+
+    .lyrics-panel.open {
+        bottom: 0;
+    }
+}

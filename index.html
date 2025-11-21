@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Informática</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Inter:wght@300;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="top-banner">
+    <div class="top-text animate-slide">🎉 💻 Informática, Bye! 💻 🎉</div>
+    <div id="changing" class="fancy animate-fade"> ❤️ ¡Gracias por ser parte del taller! ❤️</div>
+  </div>
+
+  <div class="player shadow-lg rounded-4 p-4">
+    <div class="cover">
+      <img id="coverImg" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800&auto=format&fit=crop" alt="">
+    </div>
+
+    <div class="right-col">
+      <h4 class="fw-bold mb-1" id="currentTitle">Sin canción</h4>
+      <p class="text-secondary" id="currentArtist">Playlist automática</p>
+
+      <div class="d-flex align-items-center gap-3 my-3">
+
+        <button id="prevBtn" class="btn control-btn">
+          <i class="bi bi-skip-backward-fill"></i>
+        </button>
+
+        <button id="playBtn" class="btn play-btn">
+          <i class="bi bi-play-fill"></i>
+        </button>
+
+        <button id="nextBtn" class="btn control-btn">
+          <i class="bi bi-skip-forward-fill"></i>
+        </button>
+
+
+      </div>
+
+      <div class="progress-box">
+        <div class="progress" id="progressBar">
+          <div class="bar" id="progress"></div>
+        </div>
+
+        <div class="time-row d-flex justify-content-between mt-1">
+          <span id="curTime">0:00</span>
+          <span id="durTime">0:00</span>
+        </div>
+      </div>
+
+      <div class="playlist mt-3" id="playlist"></div>
+
+      <button id="lyricsBtn" class="btn lyrics-btn lyrics-btn-sticky mt-4" 
+        data-bs-toggle="modal" data-bs-target="#lyricsModal">
+        <i class="bi bi-file-music"></i> Letra
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL LETRA -->
+  <div class="modal fade" id="lyricsModal" tabindex="-1" aria-labelledby="lyricsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content lyrics-modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="lyricsModalLabel">Letra de la Canción</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <div class="modal-body lyrics-content" id="lyricsContent">
+          <p>Selecciona una canción para ver su letra.</p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <audio id="audio" preload="auto"></audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
