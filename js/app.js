@@ -25,7 +25,7 @@ const songs = [
   {
     title: "Vamos a bailar",
     artist: "Quinto año",
-    url: "/assets/song1.mp3",
+    url: "assets/song1.mp3",
     cover: "https://picsum.photos/300?1",
     lyrics: "\nVerso 1\nMario se tiene que ir\nporque el hielo se va\na derretir y todos se van a arrepentir\nMario se fue a un bar\ny se encontró con una muchacha\nque estaba sentada en la barra\ntomando una piña colada.\n\nEstribillo\nEl profe, el profe es genial,\nsabe de computadoras y más y más,\ny toca la guitarra muy genial.\n\nVamos a bailar,\nvamos a bailar,\ny vamos a cantar,\nporque este año\nse va a acabar\ncon este ritmazo.\nporque el año se va a acabar\ny la gente va a explotar.\nporque este año se va a acabar,\ncon este ritmazo nos despedimos\nde este año que se va a llevar\nnuestros recuerdos con un solo año.\ny con este año nos despedimos.\n\nVerso 2\nPepe es fanático por\ndormir en el dormitorio y ático,\ny famoso por estar en el ático,\nel día que se salió,\nnadie lo reconoció,\npero a él no le importó.\n\nVerso 3\nLos derechos de los niños: alimentación,\nun hogar, no trabajar y demás,\nnecesitan estudiar.\n\nVerso 4\nUn día te conocí y supe\nque eras la persona perfecta que me iba a ayudar\na poder curar lo que me hicieron con una canción,\ncomo la que escribiste,\ny se me curó el corazón.\n\nVerso 5\nHoy escribo una canción para mi corazón,\ncuando llueve y hace sol\ny pienso que ya nada es como antes,\nme olvido de quién soy\n\nVerso 6\nHoy escribo una canción para mi corazón,\ncuando llueve y hace sol\ny pienso que ya nada es como antes,\nme olvido de quién soy\ny la verdad es que todo\npuede cambiar, pese a lo que pese,\nlos recuerdos… yeaa.\n"
   },
