@@ -26,14 +26,14 @@ const audio = document.getElementById("audio");
           title: "Vamos a bailar",
           artist: "Quinto año",
           url: "./assets/song1.mp3",
-          cover: "https://picsum.photos/300?random=1",
+          cover: "./assets/2.jpeg",
           lyrics: "Verso 1\nMario se tiene que ir\nporque el hielo se va\na derretir y todos se van a arrepentir\n\nEstribillo\nEl profe, el profe es genial,\nsabe de computadoras y más y más,\ny toca la guitarra muy genial.\n\nVamos a bailar,\nvamos a bailar,\ny vamos a cantar..."
         },
         {
           title: "Canción 2 - Grupo 4",
           artist: "Grupo 4",
           url: "./assets/song2-g4.mp3",
-          cover: "https://picsum.photos/300?random=2",
+          cover: "./assets/1.jpeg",
           lyrics: "Letra de la segunda canción del Grupo 4..."
         }
       ],
@@ -42,14 +42,14 @@ const audio = document.getElementById("audio");
           title: "Canción 1 - Grupo 5",
           artist: "Grupo 5",
           url: "./assets/song1-g5.mp3",
-          cover: "https://picsum.photos/300?random=3",
+          cover: "./assets/10.jpeg",
           lyrics: "Letra de la primera canción del Grupo 5..."
         },
         {
           title: "Canción 2 - Grupo 5",
           artist: "Grupo 5",
           url: "./assets/song2-g5.mp3",
-          cover: "https://picsum.photos/300?random=4",
+          cover: "./assets/8.jpeg",
           lyrics: "Letra de la segunda canción del Grupo 5..."
         }
       ],
@@ -58,14 +58,14 @@ const audio = document.getElementById("audio");
           title: "La prueba",
           artist: "Sexto año",
           url: "./assets/song2.mp3",
-          cover: "https://picsum.photos/300?random=5",
+          cover: "./assets/6.jpeg",
           lyrics: "Letra de la primera canción del Grupo 6..."
         },
         {
           title: "Canción 2 - Grupo 6",
           artist: "Grupo 6",
           url: "./assets/song2-g6.mp3",
-          cover: "https://picsum.photos/300?random=6",
+          cover: "./assets/11.jpeg",
           lyrics: "Letra de la segunda canción del Grupo 6..."
         }
       ]
