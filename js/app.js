@@ -1,158 +1,207 @@
 const audio = document.getElementById("audio");
-const playBtn = document.getElementById("playBtn");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
-const progress = document.getElementById("progress");
-const progressBar = document.getElementById("progressBar");
-const curTime = document.getElementById("curTime");
-const durTime = document.getElementById("durTime");
-const playlistDiv = document.getElementById("playlist");
+    const playBtn = document.getElementById("playBtn");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const loopBtn = document.getElementById("loopBtn");
+    const downloadBtn = document.getElementById("downloadBtn");
+    const progress = document.getElementById("progress");
+    const progressBar = document.getElementById("progressBar");
+    const curTime = document.getElementById("curTime");
+    const durTime = document.getElementById("durTime");
 
-const coverImg = document.getElementById("coverImg");
-const currentTitle = document.getElementById("currentTitle");
-const currentArtist = document.getElementById("currentArtist");
+    const coverImg = document.getElementById("coverImg");
+    const currentTitle = document.getElementById("currentTitle");
+    const currentArtist = document.getElementById("currentArtist");
+    const lyricsContent = document.getElementById("lyricsContent");
+    const lyricsModalLabel = document.getElementById("lyricsModalLabel");
 
-const lyricsBtn = document.getElementById("lyricsBtn");
+    const playlistGroup4 = document.getElementById("playlist-group4");
+    const playlistGroup5 = document.getElementById("playlist-group5");
+    const playlistGroup6 = document.getElementById("playlist-group6");
 
-// 🚨 ELEMENTOS DEL MODAL 🚨
-const lyricsModalElement = document.getElementById('lyricsModal');
-const lyricsContent = document.getElementById("lyricsContent"); 
-const lyricsModalTitle = document.getElementById('lyricsModalLabel');
+    // Datos de canciones por grupo
+    const songs = {
+      group4: [
+        {
+          title: "Vamos a bailar",
+          artist: "Quinto año",
+          url: "./assets/song1.mp3",
+          cover: "https://picsum.photos/300?random=1",
+          lyrics: "Verso 1\nMario se tiene que ir\nporque el hielo se va\na derretir y todos se van a arrepentir\n\nEstribillo\nEl profe, el profe es genial,\nsabe de computadoras y más y más,\ny toca la guitarra muy genial.\n\nVamos a bailar,\nvamos a bailar,\ny vamos a cantar..."
+        },
+        {
+          title: "Canción 2 - Grupo 4",
+          artist: "Grupo 4",
+          url: "./assets/song2-g4.mp3",
+          cover: "https://picsum.photos/300?random=2",
+          lyrics: "Letra de la segunda canción del Grupo 4..."
+        }
+      ],
+      group5: [
+        {
+          title: "Canción 1 - Grupo 5",
+          artist: "Grupo 5",
+          url: "./assets/song1-g5.mp3",
+          cover: "https://picsum.photos/300?random=3",
+          lyrics: "Letra de la primera canción del Grupo 5..."
+        },
+        {
+          title: "Canción 2 - Grupo 5",
+          artist: "Grupo 5",
+          url: "./assets/song2-g5.mp3",
+          cover: "https://picsum.photos/300?random=4",
+          lyrics: "Letra de la segunda canción del Grupo 5..."
+        }
+      ],
+      group6: [
+        {
+          title: "La prueba",
+          artist: "Sexto año",
+          url: "./assets/song2.mp3",
+          cover: "https://picsum.photos/300?random=5",
+          lyrics: "Letra de la primera canción del Grupo 6..."
+        },
+        {
+          title: "Canción 2 - Grupo 6",
+          artist: "Grupo 6",
+          url: "./assets/song2-g6.mp3",
+          cover: "https://picsum.photos/300?random=6",
+          lyrics: "Letra de la segunda canción del Grupo 6..."
+        }
+      ]
+    };
 
-// *** DATOS DE CANCIONES ***
-const songs = [
-  {
-    title: "Vamos a bailar",
-    artist: "Quinto año",
-    url: "./assets/song1.mp3",
-    cover: "https://picsum.photos/300?1",
-    lyrics: "\nVerso 1\nMario se tiene que ir\nporque el hielo se va\na derretir y todos se van a arrepentir\nMario se fue a un bar\ny se encontró con una muchacha\nque estaba sentada en la barra\ntomando una piña colada.\n\nEstribillo\nEl profe, el profe es genial,\nsabe de computadoras y más y más,\ny toca la guitarra muy genial.\n\nVamos a bailar,\nvamos a bailar,\ny vamos a cantar,\nporque este año\nse va a acabar\ncon este ritmazo.\nporque el año se va a acabar\ny la gente va a explotar.\nporque este año se va a acabar,\ncon este ritmazo nos despedimos\nde este año que se va a llevar\nnuestros recuerdos con un solo año.\ny con este año nos despedimos.\n\nVerso 2\nPepe es fanático por\ndormir en el dormitorio y ático,\ny famoso por estar en el ático,\nel día que se salió,\nnadie lo reconoció,\npero a él no le importó.\n\nVerso 3\nLos derechos de los niños: alimentación,\nun hogar, no trabajar y demás,\nnecesitan estudiar.\n\nVerso 4\nUn día te conocí y supe\nque eras la persona perfecta que me iba a ayudar\na poder curar lo que me hicieron con una canción,\ncomo la que escribiste,\ny se me curó el corazón.\n\nVerso 5\nHoy escribo una canción para mi corazón,\ncuando llueve y hace sol\ny pienso que ya nada es como antes,\nme olvido de quién soy\n\nVerso 6\nHoy escribo una canción para mi corazón,\ncuando llueve y hace sol\ny pienso que ya nada es como antes,\nme olvido de quién soy\ny la verdad es que todo\npuede cambiar, pese a lo que pese,\nlos recuerdos… yeaa.\n"
-  },
-  {
-    title: "",
-    artist: "",
-    url: "song2.mp3",
-    cover: "https://picsum.photos/300?2",
-    lyrics: "", 
-  },
-  {
-    title: "",
-    artist: "",
-    url: "song3.mp3",
-    cover: "https://picsum.photos/300?3",
-    lyrics: null
-  }
-];
+    let allSongs = [];
+    let index = 0;
 
-let index = 0;
+    // Cargar playlists
+    function loadPlaylists() {
+      Object.keys(songs).forEach((group, groupIndex) => {
+        const container = group === 'group4' ? playlistGroup4 : 
+                         group === 'group5' ? playlistGroup5 : playlistGroup6;
+        
+        songs[group].forEach((song, i) => {
+          const songIndex = allSongs.length;
+          allSongs.push(song);
+          
+          const div = document.createElement("div");
+          div.className = "playlist-item";
+          div.innerHTML = `<i class="bi bi-music-note-beamed"></i> ${song.title} — ${song.artist}`;
+          div.onclick = () => loadSong(songIndex, true);
+          container.appendChild(div);
+        });
+      });
+    }
 
-/* Cargar playlist */
-songs.forEach((s, i) => {
-  const div = document.createElement("div");
-  div.innerText = s.title + " — " + s.artist;
-  div.onclick = () => loadSong(i, true);
-  playlistDiv.appendChild(div);
-});
+    function loadSong(i, play = false) {
+      index = i;
+      const song = allSongs[i];
+      audio.src = song.url;
+      currentTitle.textContent = song.title;
+      currentArtist.textContent = song.artist;
+      coverImg.src = song.cover;
 
-function loadSong(i, play = false) {
-  index = i;
-  audio.src = songs[i].url;
-  currentTitle.textContent = songs[i].title;
-  currentArtist.textContent = songs[i].artist;
-  coverImg.src = songs[i].cover;
+      updateLyrics(song.lyrics, song.title);
 
-  // 🚨 NUEVO: Actualizar la letra del modal con saltos de línea reales
-  updateLyrics(songs[i].lyrics, songs[i].title);
+      if (play) {
+        audio.play().then(() => {
+          playBtn.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+        }).catch(() => {
+          playBtn.innerHTML = `<i class="bi bi-play-fill"></i>`;
+        });
+      } else {
+        playBtn.innerHTML = `<i class="bi bi-play-fill"></i>`;
+      }
+    }
 
-  if (play) {
-    audio.play().then(() => {
-      playBtn.innerHTML = `<i class="bi bi-pause-fill"></i>`;
-    }).catch(error => {
-      console.warn("La reproducción falló:", error.message);
-      playBtn.innerHTML = `<i class="bi bi-play-fill"></i>`;
+    function updateLyrics(text, title) {
+      if (!text) {
+        lyricsContent.innerHTML = "Letra no disponible para esta canción.";
+      } else {
+        lyricsContent.innerHTML = text.replace(/\n/g, "<br>");
+      }
+      lyricsModalLabel.textContent = `🎤 ${title || "Sin Título"} 🎤`;
+      lyricsContent.scrollTop = 0;
+    }
+
+    playBtn.onclick = () => {
+      if ((!audio.src || audio.paused) && audio.currentTime === 0) {
+        loadSong(index, true);
+        return;
+      }
+
+      if (audio.paused) {
+        audio.play().then(() => {
+          playBtn.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+        });
+      } else {
+        audio.pause();
+        playBtn.innerHTML = `<i class="bi bi-play-fill"></i>`;
+      }
+    };
+
+    prevBtn.onclick = () => {
+      index = (index - 1 + allSongs.length) % allSongs.length;
+      loadSong(index, true);
+    };
+
+    nextBtn.onclick = () => {
+      index = (index + 1) % allSongs.length;
+      loadSong(index, true);
+    };
+
+    loopBtn.onclick = () => {
+      audio.loop = !audio.loop;
+      loopBtn.classList.toggle("active");
+    };
+
+    downloadBtn.onclick = () => {
+      const song = allSongs[index];
+      if (!song || !song.url) {
+        alert("⚠️ No hay ninguna canción seleccionada");
+        return;
+      }
+      
+      const a = document.createElement("a");
+      a.href = song.url;
+      a.download = `${song.title} - ${song.artist}.mp3`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      
+      // Animación de confirmación
+      downloadBtn.style.transform = "scale(1.3) rotate(360deg)";
+      setTimeout(() => {
+        downloadBtn.style.transform = "";
+      }, 500);
+    };
+
+    audio.addEventListener("timeupdate", () => {
+      progress.style.width = (audio.currentTime / audio.duration) * 100 + "%";
+      curTime.textContent = format(audio.currentTime);
+      if (isFinite(audio.duration)) {
+        durTime.textContent = format(audio.duration);
+      }
     });
-  } else {
-    playBtn.innerHTML = `<i class="bi bi-play-fill"></i>`;
-  }
-}
 
-// 🚨 FUNCIÓN PARA ACTUALIZAR LETRAS (REEMPLAZA SALTOS DE LÍNEA)
-function updateLyrics(text, title) {
-  if (!text) {
-    lyricsContent.innerHTML = "Letra no disponible para esta canción.";
-  } else {
-    lyricsContent.innerHTML = text.replace(/\n/g, "<br>");
-  }
-
-  lyricsModalTitle.textContent = `${title || "Sin Título"}`;
-  lyricsContent.scrollTop = 0;
-}
-
-/* Reproducción y Controles */
-playBtn.onclick = () => {
-  if ((!audio.src || audio.paused) && audio.currentTime === 0) {
-    loadSong(index, true);
-    return;
-  }
-
-  if (audio.paused) {
-    audio.play().then(() => {
-      playBtn.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+    audio.addEventListener("ended", () => {
+      if (!audio.loop) {
+        nextBtn.click();
+      }
     });
-  } else {
-    audio.pause();
-    playBtn.innerHTML = `<i class="bi bi-play-fill"></i>`;
-  }
-};
 
-prevBtn.onclick = () => {
-  index = (index - 1 + songs.length) % songs.length;
-  loadSong(index, true);
-};
+    progressBar.onclick = (e) => {
+      const x = e.offsetX;
+      const width = progressBar.clientWidth;
+      audio.currentTime = (x / width) * audio.duration;
+    };
 
-nextBtn.onclick = () => {
-  index = (index + 1) % songs.length;
-  loadSong(index, true);
-};
+    function format(sec) {
+      if (isNaN(sec) || !isFinite(sec)) return "0:00";
+      const m = Math.floor(sec / 60);
+      let s = Math.floor(sec % 60);
+      if (s < 10) s = "0" + s;
+      return `${m}:${s}`;
+    }
 
-audio.addEventListener("timeupdate", () => {
-  progress.style.width = (audio.currentTime / audio.duration) * 100 + "%";
-
-  curTime.textContent = format(audio.currentTime);
-  if (isNaN(audio.duration)) {
-    durTime.textContent = "0:00";
-  } else if (durTime.textContent === "0:00" && isFinite(audio.duration)) {
-    durTime.textContent = format(audio.duration);
-  }
-});
-
-audio.addEventListener("ended", () => {
-  if (!audio.loop) {
-    nextBtn.click();
-  }
-});
-
-/* Click en barra de progreso */
-progressBar.onclick = (e) => {
-  let x = e.offsetX;
-  let width = progressBar.clientWidth;
-  audio.currentTime = (x / width) * audio.duration;
-};
-
-function format(sec) {
-  if (isNaN(sec) || !sec || !isFinite(sec)) return "0:00";
-  const m = Math.floor(sec / 60);
-  let s = Math.floor(sec % 60);
-  if (s < 10) s = "0" + s;
-  return `${m}:${s}`;
-}
-
-
-// 🚨 Manejo del botón del modal
-lyricsModalElement.addEventListener("show.bs.modal", () => {
-  lyricsBtn.classList.add("is-open");
-});
-
-lyricsModalElement.addEventListener("hidden.bs.modal", () => {
-  lyricsBtn.classList.remove("is-open");
-});
+    loadPlaylists();
