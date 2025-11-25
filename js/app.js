@@ -23,50 +23,49 @@ const audio = document.getElementById("audio");
     const songs = {
       group4: [
         {
-          title: "Vamos a bailar",
-          artist: "Quinto año",
+          title: "Dale alegría Peñarol",
+          artist: "Cuarto año",
           url: "./assets/song1.mp3",
           cover: "./assets/2.jpeg",
-          lyrics: "Verso 1\nMario se tiene que ir\nporque el hielo se va\na derretir y todos se van a arrepentir\n\nEstribillo\nEl profe, el profe es genial,\nsabe de computadoras y más y más,\ny toca la guitarra muy genial.\n\nVamos a bailar,\nvamos a bailar,\ny vamos a cantar..."
-        },
+          lyrics: "Estrofa 1\nDale alegría, alegría a mi corazón\nla Copa Libertadores es mi ascensión\ntenés que dejarlo todo por Peñarol\ntenés que dejar el alma y el corazón.\n\nEstrofa 2\ny ya verás,\nla Copa Libertadores vamos a ganar\nporque no somos como los de Nacional.\n\n(x2)"        },
         {
-          title: "Canción 2 - Grupo 4",
-          artist: "Grupo 4",
-          url: "./assets/song2-g4.mp3",
+          title: "Mejor amiga",
+          artist: "Cuarto año",
+          url: "./assets/song2.mp3",
           cover: "./assets/1.jpeg",
-          lyrics: "Letra de la segunda canción del Grupo 4..."
+          lyrics: "Estribillo 1\nNunca me rendiré,\nsiempre estaré para ti\npara lo que necesites\nnunca me rendiré.\n\nEstribillo\nNo eres de mi sangre y pareces\nmi hermanita,\neres la más leal, no me dices mentiras,\nsientes lo que siento y más si me lastiman,\nmejor amiga.\nNo eres de mi sangre y pareces\nmi hermanita,\neres la más leal, no me dices mentiras,\nsientes lo que siento y más si me lastiman,\nmejor amiga.\n\nEstribillo 3\nEres leal y no me dices mentiras,\nlo que sientes yo siento, mejor amiga.\nNunca me rendiré, siempre estaré para ti\nporque eres mi mejor amiga."
         }
       ],
       group5: [
         {
-          title: "Canción 1 - Grupo 5",
-          artist: "Grupo 5",
-          url: "./assets/song1-g5.mp3",
+          title: "Nos despedimos",
+          artist: "Quinto año",
+          url: "./assets/song3.mp3",
           cover: "./assets/10.jpeg",
-          lyrics: "Letra de la primera canción del Grupo 5..."
+          lyrics: "Estrofa 1\nMario se tiene que ir\nporque el hielo se va a derretir\ny todos se van a arrepentir.\nMario se fue a un bar\ny se encontró con una muchacha\nque estaba sentada en la barra\ntomando una piña colada.\n\nEstribillo\nEl profe, el profe es genial\nsabe de computadoras y más y más\ny toca la guitarra muy genial.\nVamos a bailar,\nvamos a bailar\ny vamos a cantar\nporque este año se va a acabar,\ncon este ritmazo nos despedimos\nde este año que se va a llevar\nnuestros recuerdos con un solo año\ny con este año nos despedimos.\n\nEstrofa 2\nPepe es fanático por dormir en el dormitorio y ático\ny famoso por estar en el ático,\nel día que se salió nadie lo reconoció\npero a él no le importó.\n\nEstrofa 3\nLos derechos de los niños: alimentación,\nun hogar, no trabajar y demás,\nnecesitan estudiar.\n\nEstribillo\nEl profe, el profe es genial\nsabe de computadoras y más y más\ny toca la guitarra muy genial.\nVamos a bailar,\nvamos a bailar\ny vamos a cantar\nporque este año se va a acabar,\ncon este ritmazo nos despedimos\nde este año que se va a llevar\nnuestros recuerdos con un solo año\ny con este año nos despedimos."
         },
         {
-          title: "Canción 2 - Grupo 5",
-          artist: "Grupo 5",
-          url: "./assets/song2-g5.mp3",
+          title: "Hoy escribo una canción",
+          artist: "Quinto año",
+          url: "./assets/song4.mp3",
           cover: "./assets/8.jpeg",
-          lyrics: "Letra de la segunda canción del Grupo 5..."
+          lyrics: "Estrofa 1\nUn día te conocí y supe que\neras la persona perfecta que me iba\na poder curar lo que me hicieron\ncon una canción como la que me escribiste\ny me curó el corazón.\n\nEstribillo\nHoy escribo una canción para mi corazón\ncuando llueve y hace sol y pienso que ya nada\nes como antes.\n\nEstrofa 2\nMe olvido de quién soy y la verdad es que todo puede cambiar,\npase lo que pase los recuerdos se van. Yeah!\n\nUn día te conocí y supe que\neras la persona perfecta que me iba\na poder curar el corazón.\n\nEstribillo\nHoy te escribo una canción para mi corazón\ncuando llueve y hace sol y pienso que ya nada\nes como antes."
         }
       ],
       group6: [
         {
           title: "La prueba",
           artist: "Sexto año",
-          url: "./assets/song2.mp3",
+          url: "./assets/song5.mp3",
           cover: "./assets/6.jpeg",
-          lyrics: "Letra de la primera canción del Grupo 6..."
+          lyrics: "Estrofa 1\nLa clase se desespera\ncuando la maestra dice ‘prueba’,\nsacamos todo bajo y repetimos todo el año.\n\nEstrofa 2\nLa directora se quiere marchar\ncuando llegamos todos a molestar.\n\nEstrofa 3\nA la cuenta de una llegamos a primero,\npero no sé cómo pasamos de quinto a sexto.\n\n(x2)\n\nCoro\nEstos momentos que pasamos\npronto se van a acabar."
         },
         {
-          title: "Canción 2 - Grupo 6",
-          artist: "Grupo 6",
-          url: "./assets/song2-g6.mp3",
+          title: "La fiesta del pop",
+          artist: "Sexto año",
+          url: "./assets/song6.mp3",
           cover: "./assets/11.jpeg",
-          lyrics: "Letra de la segunda canción del Grupo 6..."
+          lyrics: "Estrofa 1\nMariana se tiene que ir\nporque el hielo se va a derretir\ny todos se van a arrepentir.\nMariana se fue a un bar\ny se encontró con un muchacho\nque estaba sentado en la barra\ntomando una piña colada.\n\nEstrofa 2\nYa casi van dos días y no va a dormir.\nCuando llega el viernes ella quiere salir,\nno pasa el mareo y ella quiere más;\ncon sus amigas\nse van a festejar."
         }
       ]
     };
