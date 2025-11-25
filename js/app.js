@@ -33,7 +33,7 @@ const audio = document.getElementById("audio");
           artist: "Cuarto año",
           url: "./assets/song2.mp3",
           cover: "./assets/1.jpeg",
-          lyrics: "Estribillo 1\nNunca me rendiré,\nsiempre estaré para ti\npara lo que necesites\nnunca me rendiré.\n\nEstribillo\nNo eres de mi sangre y pareces\nmi hermanita,\neres la más leal, no me dices mentiras,\nsientes lo que siento y más si me lastiman,\nmejor amiga.\nNo eres de mi sangre y pareces\nmi hermanita,\neres la más leal, no me dices mentiras,\nsientes lo que siento y más si me lastiman,\nmejor amiga.\n\nEstribillo 3\nEres leal y no me dices mentiras,\nlo que sientes yo siento, mejor amiga.\nNunca me rendiré, siempre estaré para ti\nporque eres mi mejor amiga."
+          lyrics: "Estribillo 1\nNunca me rendiré,\nsiempre estaré para ti\npara lo que necesites\nnunca me rendiré.\n\nEstribillo\nNo eres de mi sangre y pareces\nmi hermanita,\neres la más leal, no me dices mentiras,\nsientes lo que siento y más si me lastiman,\nmejor amiga. \n(x2)\n\nEstribillo 3\nEres leal y no me dices mentiras,\nlo que sientes yo siento, mejor amiga.\nNunca me rendiré, siempre estaré para ti\nporque eres mi mejor amiga."
         }
       ],
       group5: [
